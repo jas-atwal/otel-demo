@@ -1,0 +1,5 @@
+components:
+  frontend:
+    image:
+      repository: "otel/demo-frontend-broken-typo" # The non-existent image
+      tag: "latest"
