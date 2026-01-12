@@ -1,6 +1,6 @@
 adService:
   create: true
-  name: adservices
+  name: adservice
   resources:
     requests:
       cpu: 200m
