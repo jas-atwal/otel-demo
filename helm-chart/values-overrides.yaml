@@ -1,6 +1,6 @@
 adService:
   create: true
-  name: adservice # This change works because 'name' is a top-level key under adService
+  name: adservices # This change works because 'name' is a top-level key under adService
   # resources:
   #   requests:
   #     cpu: 200m
@@ -18,4 +18,4 @@ cartService:
     #   memory: 128Mi
     limits:
       cpu: 300m
-      memory: "256Mi" # Reduced from 256Mi to trigger OOM during startup 
+      memory: "8Mi" # Reduced from 256Mi to trigger OOM during startup 
