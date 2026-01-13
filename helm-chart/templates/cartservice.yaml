@@ -265,7 +265,10 @@ spec:
           tcpSocket:
             port: 6379
         livenessProbe:
+          initialDelaySeconds: 10
           periodSeconds: 5
+          timeoutSeconds: 1
+          failureThreshold: 2
           tcpSocket:
             # port: 6379
             port: 6370
