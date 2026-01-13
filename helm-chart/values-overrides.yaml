@@ -1,5 +1,0 @@
-components:
-  cartService:
-    resources:
-      limits:
-        memory: "10Mi"  # This is usually too low for the cart service to function
