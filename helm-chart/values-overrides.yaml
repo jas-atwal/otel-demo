@@ -1,10 +1,5 @@
-adService:
-  create: true
-  name: adservice
-  resources:
-    requests:
-      cpu: 200m
-      memory: 160Mi
-    limits:
-      cpu: 200m
-      memory: 200Mi
+components:
+  cartService:
+    resources:
+      limits:
+        memory: "10Mi"  # This is usually too low for the cart service to function
