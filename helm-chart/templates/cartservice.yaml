@@ -33,6 +33,8 @@ metadata:
   labels:
     app: {{ .Values.cartService.name }}
 spec:
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 60
   selector:
     matchLabels:
       app: {{ .Values.cartService.name }}
