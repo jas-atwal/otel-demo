@@ -1,6 +1,6 @@
 adService:
   create: true
-  name: adservices # Changed name to trigger ImgPullErr 
+  name: adservices # This change works because 'name' is a top-level key under adService
   # resources:
   #   requests:
   #     cpu: 200m
@@ -12,10 +12,10 @@ adService:
 cartService:
   # create: true
   # name: cartservice
-  # resources:
-  #   requests:
-  #     cpu: 200m
-  #     memory: 128Mi
+  resources:  # <--- You were missing this vital parent key
+    # requests:
+    #   cpu: 200m
+    #   memory: 128Mi
     limits:
       cpu: 300m
-      memory: "60Mi" # Reduced from 128Mi to trigger OOM during startup 
+      memory: "60Mi" # Reduced from 256Mi to trigger OOM during startup 
