@@ -36,7 +36,7 @@ metadata:
     app: {{ .Values.adService.name }}
   annotations:
     app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
-    app.komodor.com/app.ref: {{ .Values.komodor.ref | quote }}
+    app.komodor.com/app.ref: {{ .Values.images.tag | default .Chart.AppVersion | quote }}
     # app.komodor.com/tracked_files: |
     #   charts/**
     #   **/*.yaml
