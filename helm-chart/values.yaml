@@ -218,3 +218,6 @@ cartDatabase:
 shoppingAssistantService:
   create: false
   name: shoppingassistantservice
+
+komodor:
+  ref: "unknown"
