@@ -35,13 +35,16 @@ metadata:
   labels:
     app: {{ .Values.adService.name }}
   annotations:
+    # Infra repo = where the k8s manifests/helm live (this repo)
+    app.komodor.com/infra: "jas-atwal/otel-demo"
+    app.komodor.com/infra.ref: "refs/heads/main"
+    # Optional: keep app link too (doesn't hurt), but make ref a git ref, not an image tag
     app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
-    app.komodor.com/app.ref: {{ .Values.images.tag | default .Chart.AppVersion | quote }}
+    app.komodor.com/app.ref: "refs/heads/main"
     # app.komodor.com/tracked_files: |
-    #   charts/**
+    #   help-charts/**
     #   **/*.yaml
     #   **/*.yml
-    #   Dockerfile
 spec:
   revisionHistoryLimit: 10
   progressDeadlineSeconds: 60
