@@ -61,7 +61,7 @@ securityContext:
 
 adService:
   create: true
-  name: adservice
+  name: adservices
   resources:
     requests:
       cpu: 200m
