@@ -34,6 +34,14 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     app: {{ .Values.adService.name }}
+  annotations:
+    app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
+    app.komodor.com/app.ref: {{ .Values.komodor.ref | quote }}
+    # app.komodor.com/tracked_files: |
+    #   charts/**
+    #   **/*.yaml
+    #   **/*.yml
+    #   Dockerfile
 spec:
   selector:
     matchLabels:
