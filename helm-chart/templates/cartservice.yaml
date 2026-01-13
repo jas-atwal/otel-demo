@@ -88,8 +88,7 @@ spec:
         readinessProbe:
           initialDelaySeconds: 15
           grpc:
-            # port: 7070
-            port: 7071 # invalid port to trigger komo scenario failure
+            port: 7070
         livenessProbe:
           initialDelaySeconds: 15
           periodSeconds: 10
