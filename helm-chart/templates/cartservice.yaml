@@ -218,6 +218,8 @@ metadata:
   name: {{ .Values.cartDatabase.inClusterRedis.name }}
   namespace: {{ .Release.Namespace }}
 spec:
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 60
   selector:
     matchLabels:
       app: {{ .Values.cartDatabase.inClusterRedis.name }}
@@ -266,6 +268,7 @@ spec:
           periodSeconds: 5
           tcpSocket:
             port: 6379
+            # port: 6370
         volumeMounts:
         - mountPath: /data
           name: redis-data

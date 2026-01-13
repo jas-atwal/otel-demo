@@ -43,6 +43,8 @@ metadata:
     #   **/*.yml
     #   Dockerfile
 spec:
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 60
   selector:
     matchLabels:
       app: {{ .Values.adService.name }}
@@ -78,6 +80,7 @@ spec:
           privileged: false
           readOnlyRootFilesystem: true
         image: {{ .Values.images.repository }}/{{ .Values.adService.name }}:{{ .Values.images.tag | default .Chart.AppVersion }}
+        # image: ghcr.io/open-telemetry/demo-adservice:does-not-exist
         ports:
         - containerPort: 9555
         env:
