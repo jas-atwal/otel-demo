@@ -38,6 +38,8 @@ metadata:
     # Infra repo = where the k8s manifests/helm live (this repo)
     app.komodor.com/infra: "https://github.com/jas-atwal/otel-demo"
     app.komodor.com/infra.ref: "refs/heads/main"
+    app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
+    app.komodor.com/app.ref: "refs/heads/main"
     # Optional: keep app link too (doesn't hurt), but make ref a git ref, not an image tag
     # app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
     # app.komodor.com/app.ref: "refs/heads/main"
@@ -55,6 +57,11 @@ spec:
     metadata:
       labels:
         app: {{ .Values.adService.name }}
+      annotations:
+        app.komodor.com/infra: "https://github.com/jas-atwal/otel-demo"
+        app.komodor.com/infra.ref: "refs/heads/main"
+        app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
+        app.komodor.com/app.ref: "refs/heads/main"
     spec:
       {{- if .Values.serviceAccounts.create }}
       serviceAccountName: {{ .Values.adService.name }}
@@ -82,8 +89,8 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: {{ .Values.images.repository }}/{{ .Values.adService.name }}:{{ .Values.images.tag | default .Chart.AppVersion }}
-        # image: ghcr.io/open-telemetry/demo-adservice:does-not-exist
+        # image: {{ .Values.images.repository }}/{{ .Values.adService.name }}:{{ .Values.images.tag | default .Chart.AppVersion }}
+        image: ghcr.io/open-telemetry/demo-adservice:does-not-exist
         ports:
         - containerPort: 9555
         env:
