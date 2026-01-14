@@ -110,8 +110,7 @@ spec:
           initialDelaySeconds: 15
           periodSeconds: 10
           grpc:
-            # port: 7070
-            port: 7069
+            port: 7070
 ---
 apiVersion: v1
 kind: Service
