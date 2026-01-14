@@ -40,9 +40,6 @@ metadata:
     app.komodor.com/infra.ref: "refs/heads/main"
     app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
     app.komodor.com/app.ref: "refs/heads/main"
-    # Optional: keep app link too (doesn't hurt), but make ref a git ref, not an image tag
-    # app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
-    # app.komodor.com/app.ref: "refs/heads/main"
     # app.komodor.com/tracked_files: |
     #   helm-charts/**
     #   **/*.yaml
