@@ -283,13 +283,13 @@ spec:
             port: 6379
         livenessProbe:
           periodSeconds: 5
-          tcpSocket:
-            port: 6379
-          # initialDelaySeconds: 10
-          # timeoutSeconds: 1
-          # failureThreshold: 2
           # tcpSocket:
-            # port: 6370
+          #   port: 6379
+          initialDelaySeconds: 10
+          timeoutSeconds: 1
+          failureThreshold: 2
+          tcpSocket:
+            port: 6370
         volumeMounts:
         - mountPath: /data
           name: redis-data
