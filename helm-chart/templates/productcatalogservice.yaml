@@ -93,12 +93,12 @@ spec:
           value: {{ .Values.productCatalogService.extraLatency }}
         readinessProbe:
           grpc:
-            port: 3551  # setup for failure testing
+            port: 3551 # setup for failure testing
           periodSeconds: 5 # setup for failure testing
           failureThreshold: 1 # setup for failure testing
         livenessProbe:
           grpc:
-            port: 3550
+            port: 3551 # setup for failure testing
           initialDelaySeconds: 2 # setup for failure testing
           periodSeconds: 2 # setup for failure testing
           timeoutSeconds: 1 # setup for failure testing
