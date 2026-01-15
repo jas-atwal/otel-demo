@@ -94,15 +94,15 @@ spec:
         readinessProbe:
           grpc:
             port: 3550
-          # periodSeconds: 5
-          # failureThreshold: 1
+          # periodSeconds: 5 # setup for failure testing
+          # failureThreshold: 1 # setup for failure testing
         livenessProbe:
           grpc:
             port: 3550
-          # initialDelaySeconds: 2 
-          # periodSeconds: 2
-          # timeoutSeconds: 1
-          # failureThreshold: 1
+          # initialDelaySeconds: 2 # setup for failure testing
+          # periodSeconds: 2 # setup for failure testing
+          # timeoutSeconds: 1 # setup for failure testing
+          # failureThreshold: 1 # setup for failure testing
         resources:
           {{- toYaml .Values.productCatalogService.resources | nindent 10 }}
 ---
