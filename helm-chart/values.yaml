@@ -167,35 +167,35 @@ productCatalogService:
   name: productcatalogservice
   # Specifies an extra latency to any request on productcatalogservice, by default no extra latency.
   extraLatency: ""
-  resources:
-    requests:
-      cpu: 100m
-      memory: 64Mi
-    limits:
-      cpu: 200m
-      memory: 128Mi
-  
-  # # failureRate: scenario for OOMK
   # resources:
-  #   limits:
-  #     memory: 48Mi
   #   requests:
-  #     cpu: 10m
-  #     memory: 32Mi
+  #     cpu: 100m
+  #     memory: 64Mi
+  #   limits:
+  #     cpu: 200m
+  #     memory: 128Mi
+  
+  # failureRate: scenario for OOMK
+  resources:
+    limits:
+      memory: 48Mi
+    requests:
+      cpu: 10m
+      memory: 32Mi
 
-  # livenessProbe:
-  #   grpc:
-  #     port: 3550
-  #   initialDelaySeconds: 5
-  #   periodSeconds: 5
-  #   timeoutSeconds: 1
-  #   failureThreshold: 1
+  livenessProbe:
+    grpc:
+      port: 3550
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    timeoutSeconds: 1
+    failureThreshold: 1
 
-  # readinessProbe:
-  #   grpc:
-  #     port: 3550
-  #   periodSeconds: 5
-  #   failureThreshold: 1
+  readinessProbe:
+    grpc:
+      port: 3550
+    periodSeconds: 5
+    failureThreshold: 1
 
 recommendationService:
   create: true
