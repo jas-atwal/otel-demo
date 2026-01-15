@@ -175,13 +175,13 @@ productCatalogService:
   #     cpu: 200m
   #     memory: 128Mi
   
-  # failureRate: scenario for OOMK
+  # scenario for drift
   resources:
     limits:
-      memory: 48Mi
+      memory: 24Mi
     requests:
       cpu: 10m
-      memory: 32Mi
+      memory: 16Mi
 
   livenessProbe:
     grpc:
