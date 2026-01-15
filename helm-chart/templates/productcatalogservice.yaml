@@ -94,9 +94,15 @@ spec:
         readinessProbe:
           grpc:
             port: 3550
+          # periodSeconds: 5
+          # failureThreshold: 1
         livenessProbe:
           grpc:
             port: 3550
+          # initialDelaySeconds: 2 
+          # periodSeconds: 2
+          # timeoutSeconds: 1
+          # failureThreshold: 1
         resources:
           {{- toYaml .Values.productCatalogService.resources | nindent 10 }}
 ---
