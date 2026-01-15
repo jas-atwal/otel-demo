@@ -60,6 +60,10 @@ securityContext:
   enable: true
 
 adService:
+  # failure scanario: non-existing image
+  # image:
+  #   repository: us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice
+  #   tag: definitely-does-not-exist
   create: true
   name: adservice
   resources:
@@ -174,6 +178,28 @@ productCatalogService:
     limits:
       cpu: 200m
       memory: 128Mi
+  
+  # # failureRate: scenario for OOMK
+  # resources:
+  #   limits:
+  #     memory: 48Mi
+  #   requests:
+  #     cpu: 10m
+  #     memory: 32Mi
+
+  # livenessProbe:
+  #   grpc:
+  #     port: 3550
+  #   initialDelaySeconds: 5
+  #   periodSeconds: 5
+  #   timeoutSeconds: 1
+  #   failureThreshold: 1
+
+  # readinessProbe:
+  #   grpc:
+  #     port: 3550
+  #   periodSeconds: 5
+  #   failureThreshold: 1
 
 recommendationService:
   create: true
