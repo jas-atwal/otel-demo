@@ -289,7 +289,7 @@ spec:
           timeoutSeconds: 1
           failureThreshold: 2
           tcpSocket:
-            port: 6370 # Intentional misconfiguration to demonstrate liveness probe failure
+            # port: 6370 # Intentional misconfiguration to demonstrate liveness probe failure
         volumeMounts:
         - mountPath: /data
           name: redis-data
