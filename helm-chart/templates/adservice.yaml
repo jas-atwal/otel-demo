@@ -87,7 +87,7 @@ spec:
           privileged: false
           readOnlyRootFilesystem: true
         image: {{ .Values.images.repository }}/{{ .Values.adService.name }}:{{ .Values.images.tag | default .Chart.AppVersion }}
-        # image: ghcr.io/open-telemetry/demo-adservice:does-not-exist
+        # image:us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice:does-not-exist
         ports:
         - containerPort: 9555
         env:
