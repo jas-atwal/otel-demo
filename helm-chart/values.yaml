@@ -178,10 +178,10 @@ productCatalogService:
   # scenario for drift
   resources:
     limits:
-      memory: 24Mi
+      memory: 8Mi
     requests:
       cpu: 10m
-      memory: 16Mi
+      memory: 4Mi
 
   livenessProbe:
     grpc:
