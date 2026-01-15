@@ -61,9 +61,9 @@ securityContext:
 
 adService:
   # failure scanario: non-existing image
-  # image:
-  #   repository: us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice
-  #   tag: definitely-does-not-exist
+  image:
+    repository: us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice
+    tag: definitely-does-not-exist
   create: true
   name: adservice
   resources:
