@@ -40,10 +40,10 @@ metadata:
     app.komodor.com/infra.ref: "refs/heads/main"
     app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
     app.komodor.com/app.ref: "refs/heads/main"
-    # app.komodor.com/tracked_files: |
-    #   helm-charts/**
-    #   **/*.yaml
-    #   **/*.yml
+    app.komodor.com/tracked_files: |
+      helm-charts/**
+      **/*.yaml
+      **/*.yml
 spec:
   revisionHistoryLimit: 10
   progressDeadlineSeconds: 30
@@ -54,6 +54,7 @@ spec:
     metadata:
       labels:
         app: {{ .Values.adService.name }}
+      # Komodor annotations MUST be on the pod template for runtime correlation
       annotations:
         app.komodor.com/infra: "https://github.com/jas-atwal/otel-demo"
         app.komodor.com/infra.ref: "refs/heads/main"

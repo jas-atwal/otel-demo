@@ -175,7 +175,7 @@ productCatalogService:
   #     cpu: 200m
   #     memory: 128Mi
   
-  # scenario for drift
+  # scenario for OOMKilled pod
   resources:
     limits:
       memory: 8Mi
