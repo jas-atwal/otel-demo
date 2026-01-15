@@ -285,13 +285,13 @@ spec:
           # Correct port for liveness probe
           periodSeconds: 5
           tcpSocket:
-            # port: 6379 # Correct port for liveness probe
+            port: 6379 # Correct port for liveness probe
           # Intentional misconfiguration to demonstrate liveness probe failure below
-          initialDelaySeconds: 10 
-          timeoutSeconds: 1 
-          failureThreshold: 2
-          tcpSocket:
-            port: 6370 # incorrect port for liveness probe
+          # initialDelaySeconds: 10 
+          # timeoutSeconds: 1 
+          # failureThreshold: 2
+          # tcpSocket:
+          #   port: 6370 # incorrect port for liveness probe
         volumeMounts:
         - mountPath: /data
           name: redis-data
