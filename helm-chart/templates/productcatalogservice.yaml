@@ -34,7 +34,19 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     app: {{ .Values.productCatalogService.name }}
+  annotations:
+    # Infra repo = where the k8s manifests/helm live (this repo)
+    app.komodor.com/infra: "https://github.com/jas-atwal/otel-demo"
+    app.komodor.com/infra.ref: "refs/heads/main"
+    app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
+    app.komodor.com/app.ref: "refs/heads/main"
+    # app.komodor.com/tracked_files: |
+    #   helm-charts/**
+    #   **/*.yaml
+    #   **/*.yml
 spec:
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 30
   selector:
     matchLabels:
       app: {{ .Values.productCatalogService.name }}
@@ -93,16 +105,18 @@ spec:
           value: {{ .Values.productCatalogService.extraLatency }}
         readinessProbe:
           grpc:
-            port: 3551 # setup for failure testing
-          periodSeconds: 5 # setup for failure testing
-          failureThreshold: 1 # setup for failure testing
+            port: 3551 # works with correct port
+          #   port: 3550 # setup for failure testing
+          # periodSeconds: 5 # setup for failure testing
+          # failureThreshold: 1 # setup for failure testing
         livenessProbe:
           grpc:
-            port: 3551 # setup for failure testing
-          initialDelaySeconds: 2 # setup for failure testing
-          periodSeconds: 2 # setup for failure testing
-          timeoutSeconds: 1 # setup for failure testing
-          failureThreshold: 1 # setup for failure testing
+            port: 3550
+          #   port: 3551 # setup for failure testing
+          # initialDelaySeconds: 2 # setup for failure testing
+          # periodSeconds: 2 # setup for failure testing
+          # timeoutSeconds: 1 # setup for failure testing
+          # failureThreshold: 1 # setup for failure testing
         resources:
           {{- toYaml .Values.productCatalogService.resources | nindent 10 }}
 ---
