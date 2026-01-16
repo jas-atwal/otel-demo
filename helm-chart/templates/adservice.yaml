@@ -39,13 +39,13 @@ metadata:
     # app.komodor.com/infra.ref: "refs/heads/main"
     app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
     app.komodor.com/app.ref: "refs/heads/main"
-    app.komodor.com/tracked_files: |
-      helm-charts/**
-      **/*.yaml
-      **/*.yml
+    # app.komodor.com/tracked_files: |
+    #   helm-charts/**
+    #   **/*.yaml
+    #   **/*.yml
 spec:
   revisionHistoryLimit: 10
-  progressDeadlineSeconds: 30
+  progressDeadlineSeconds: 10
   selector:
     matchLabels:
       app: {{ .Values.adService.name }}
@@ -56,8 +56,8 @@ spec:
       annotations:
         # app.komodor.com/infra: "https://github.com/jas-atwal/otel-demo"
         # app.komodor.com/infra.ref: "refs/heads/main"
-        app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
-        app.komodor.com/app.ref: "refs/heads/main"
+        # app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
+        # app.komodor.com/app.ref: "refs/heads/main"
     spec:
       {{- if .Values.serviceAccounts.create }}
       serviceAccountName: {{ .Values.adService.name }}
