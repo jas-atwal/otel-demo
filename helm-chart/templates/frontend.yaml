@@ -42,6 +42,8 @@ metadata:
       **/*.yaml
       **/*.yml
 spec:
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 10
   selector:
     matchLabels:
       app: {{ .Values.frontend.name }}
