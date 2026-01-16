@@ -176,28 +176,28 @@ productCatalogService:
       cpu: 200m
       memory: 128Mi
   
-  # start scenario for OOMKilled pod
+  # OOMKilled failure scenario for demonstration purposes.
   # resources:
   #   limits:
   #     memory: 8Mi
   #   requests:
   #     cpu: 10m
   #     memory: 4Mi
-  # end scenario for OOMKilled pod
 
-  livenessProbe:
-    grpc:
-      port: 3550
-    initialDelaySeconds: 5
-    periodSeconds: 5
-    timeoutSeconds: 1
-    failureThreshold: 1
+  # livenessProbe:
+  #   grpc:
+  #     port: 3550
+  #   initialDelaySeconds: 5
+  #   periodSeconds: 5
+  #   timeoutSeconds: 1
+  #   failureThreshold: 1
 
-  readinessProbe:
-    grpc:
-      port: 3550
-    periodSeconds: 5
-    failureThreshold: 1
+  # readinessProbe:
+  #   grpc:
+  #     port: 3550
+  #   periodSeconds: 5
+  #   failureThreshold: 1
+  # end OOMKilled failure scenario for demonstration purposes.
 
 recommendationService:
   create: true
