@@ -36,9 +36,9 @@ metadata:
     app: {{ .Values.frontend.name }}
   annotations:
     app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
-    app.komodor.com/app.ref: {{ .Values.images.tag | default .Chart.AppVersion | quote }}
-    # app.komodor.com/app.ref: "refs/heads/main"
-
+    app.komodor.com/app.ref: "refs/heads/demo-adservice"
+    app.komodor.com/infra: "https://github.com/jas-atwal/otel-demo"
+    app.komodor.com/infra.ref: "refs/heads/main"
     app.komodor.com/tracked_files: |
       helm-charts/**
       **/*.yaml
@@ -55,6 +55,10 @@ spec:
         app: {{ .Values.frontend.name }}
       annotations:
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
+        app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
+        app.komodor.com/app.ref: "refs/heads/demo-adservice"
+        app.komodor.com/infra: "https://github.com/jas-atwal/otel-demo"
+        app.komodor.com/infra.ref: "refs/heads/main"
     spec:
       {{- if .Values.serviceAccounts.create }}
       serviceAccountName: {{ .Values.frontend.name }}
@@ -96,8 +100,8 @@ spec:
             initialDelaySeconds: 10
             httpGet:
               # setup for failure testing for liveness probe
-              path: "does-not-exist"
-              # path: "/_healthz"
+              # path: "does-not-exist"
+              path: "/_healthz"
               port: 8080
               httpHeaders:
               - name: "Cookie"
