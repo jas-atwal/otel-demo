@@ -35,14 +35,22 @@ metadata:
   labels:
     app: {{ .Values.adService.name }}
   annotations:
-  app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
-  app.komodor.com/app.ref: "refs/heads/demo-adservice"
-  app.komodor.com/infra: "https://github.com/jas-atwal/otel-demo"
-  app.komodor.com/infra.ref: "refs/heads/main"
+    app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
+    app.komodor.com/app.ref: "refs/heads/demo-adservice"
+    app.komodor.com/infra: "https://github.com/jas-atwal/otel-demo"
+    app.komodor.com/infra.ref: "refs/heads/main"
     app.komodor.com/tracked_files: |
       helm-charts/**
       **/*.yaml
       **/*.yml
+  # app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
+  # app.komodor.com/app.ref: "refs/heads/demo-adservice"
+  # app.komodor.com/infra: "https://github.com/jas-atwal/otel-demo"
+  # app.komodor.com/infra.ref: "refs/heads/main"
+  #   app.komodor.com/tracked_files: |
+  #     helm-charts/**
+  #     **/*.yaml
+  #     **/*.yml
 spec:
   revisionHistoryLimit: 10
   progressDeadlineSeconds: 10
@@ -85,8 +93,8 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: {{ .Values.images.repository }}/{{ .Values.adService.name }}:{{ .Values.images.tag | default .Chart.AppVersion }}
-        # image: us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice:does-not-exist
+        # image: {{ .Values.images.repository }}/{{ .Values.adService.name }}:{{ .Values.images.tag | default .Chart.AppVersion }}
+        image: us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice:does-not-exist
         ports:
         - containerPort: 9555
         env:
