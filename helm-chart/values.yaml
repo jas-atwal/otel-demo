@@ -150,6 +150,13 @@ loadGenerator:
     limits:
       cpu: 500m
       memory: 512Mi
+    # liveness probe with httpGet to a non-existing path to simulate liveness probe failures
+    livenessProbe:
+    initialDelaySeconds: 10
+    httpGet:
+      path: "doesnotexist"
+      # path: "/_healthz"
+      port: 8080
 
 paymentService:
   create: true
