@@ -167,21 +167,23 @@ productCatalogService:
   name: productcatalogservice
   # Specifies an extra latency to any request on productcatalogservice, by default no extra latency.
   extraLatency: ""
-  # resources:
-  #   requests:
-  #     cpu: 100m
-  #     memory: 64Mi
-  #   limits:
-  #     cpu: 200m
-  #     memory: 128Mi
-  
-  # scenario for OOMKilled pod
+  # correct resource values for 128Mi memory request
   resources:
-    limits:
-      memory: 8Mi
     requests:
-      cpu: 10m
-      memory: 4Mi
+      cpu: 100m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 128Mi
+  
+  # start scenario for OOMKilled pod
+  # resources:
+  #   limits:
+  #     memory: 8Mi
+  #   requests:
+  #     cpu: 10m
+  #     memory: 4Mi
+  # end scenario for OOMKilled pod
 
   livenessProbe:
     grpc:
