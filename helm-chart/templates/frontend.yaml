@@ -34,6 +34,13 @@ metadata:
   namespace: {{ .Release.Namespace }}
   labels:
     app: {{ .Values.frontend.name }}
+  annotations:
+    app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
+    app.komodor.com/app.ref: "refs/heads/main"
+    app.komodor.com/tracked_files: |
+      helm-charts/**
+      **/*.yaml
+      **/*.yml
 spec:
   selector:
     matchLabels:
@@ -84,7 +91,9 @@ spec:
           livenessProbe:
             initialDelaySeconds: 10
             httpGet:
-              path: "/_healthz"
+              # setup for failure testing for liveness probe
+              path: "does-not-exist"
+              # path: "/_healthz"
               port: 8080
               httpHeaders:
               - name: "Cookie"

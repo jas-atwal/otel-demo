@@ -138,14 +138,6 @@ frontend:
     limits:
       cpu: 200m
       memory: 128Mi
-  # setup for failure testing for liveness probe
-  livenessProbe:
-  initialDelaySeconds: 10
-  httpGet:
-    path: "does-not-exist" 
-    # path: "/_healthz"
-    port: 8080
-
 
 loadGenerator:
   create: true
