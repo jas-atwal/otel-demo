@@ -43,7 +43,7 @@ metadata:
       **/*.yml  
 spec:
   revisionHistoryLimit: 10
-  progressDeadlineSeconds: 10
+  progressDeadlineSeconds: 20
   selector:
     matchLabels:
       app: {{ .Values.adService.name }}
