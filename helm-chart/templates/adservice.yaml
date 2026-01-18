@@ -42,6 +42,7 @@ metadata:
       **/*.yaml
       **/*.yml  
 spec:
+  replicas: 1
   revisionHistoryLimit: 10
   progressDeadlineSeconds: 20
   selector:
@@ -81,8 +82,8 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: {{ .Values.images.repository }}/{{ .Values.adService.name }}:{{ .Values.images.tag | default .Chart.AppVersion }}
-        # image: us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice:does-not-exist
+        # image: {{ .Values.images.repository }}/{{ .Values.adService.name }}:{{ .Values.images.tag | default .Chart.AppVersion }}
+        image: us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice:does-not-exist
         ports:
         - containerPort: 9555
         env:
