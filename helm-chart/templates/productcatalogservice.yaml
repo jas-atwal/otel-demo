@@ -37,8 +37,6 @@ metadata:
   annotations:
     app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
     app.komodor.com/app.ref: "refs/heads/demo-komodor"
-    app.komodor.com/infra: "https://github.com/jas-atwal/otel-demo"
-    app.komodor.com/infra.ref: "refs/heads/main"
     app.komodor.com/tracked_files: |
       helm-charts/**
       **/*.yaml
@@ -55,10 +53,6 @@ spec:
         app: {{ .Values.productCatalogService.name }}
       annotations:
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
-        app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
-        app.komodor.com/app.ref: "refs/heads/demo-komodor"
-        app.komodor.com/infra: "https://github.com/jas-atwal/otel-demo"
-        app.komodor.com/infra.ref: "refs/heads/main"
     spec:
       {{- if .Values.serviceAccounts.create }}
       serviceAccountName: {{ .Values.productCatalogService.name }}
