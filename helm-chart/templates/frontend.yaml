@@ -91,11 +91,11 @@ spec:
               - name: "Cookie"
                 value: "shop_session-id=x-readiness-probe"
           livenessProbe:
-            initialDelaySeconds: 10
+            initialDelaySeconds: 11
             httpGet:
               # setup for failure testing for liveness probe
-              path: "does-not-exist"
-              # path: "/_healthz"
+              # path: "does-not-exist"
+              path: "/_healthz"
               port: 8080
               httpHeaders:
               - name: "Cookie"
