@@ -94,8 +94,8 @@ spec:
             initialDelaySeconds: 10
             httpGet:
               # setup for failure testing for liveness probe
-              path: "does-not-exist"
-              # path: "/_healthz"
+              # path: "does-not-exist"
+              path: "/_healthz"
               port: 8080
               httpHeaders:
               - name: "Cookie"
