@@ -36,7 +36,7 @@ metadata:
     app: {{ .Values.productCatalogService.name }}
   annotations:
     app.komodor.com/app: "https://github.com/jas-atwal/otel-demo"
-    app.komodor.com/app.ref: "refs/heads/demo-komodor"
+    app.komodor.com/app.ref: "355707f437478914c2ab8d304a809abea9b9caa9"
     app.komodor.com/tracked_files: |
       helm-charts/**
       **/*.yaml
